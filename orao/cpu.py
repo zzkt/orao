@@ -223,7 +223,7 @@ class CPU(object):
         return 256 * self.get_byte(addr + 1) + self.get_byte(addr)
 
     def get_filename(self):
-        return "wav/{0}.WAV".format(str(self.memory[592:602]).rstrip())
+        return 'wav/{0}.WAV'.format(str(self.memory[592:602], 'ASCII').rstrip())
 
     def speaker(self):
         self.flipflop ^= 1
@@ -233,15 +233,15 @@ class CPU(object):
             self.sndbuf += [255] * self.samples + [0] * self.samples
         self.last_sound_cycles = self.cycles
 
+    def tape_load_gen(self):
+        for i in wave.open(self.get_filename()).readframes(2 ** 24):
+            for j in 2 * [i]:
+                yield 255 * (j > 128)
+
     def get_byte(self, addr):
         if addr == 0x87FF:  # Adresa ulaza kasetofona
             if not self.tape:
-                self.tape = (
-                    255 * (ord(j) > 128)
-                    for i in wave.open(self.get_filename()).readframes(2**24)
-                    for j in 2 * i
-                )
-
+               self.tape = self.tape_load_gen()
             try:
                 return next(self.tape)
 
