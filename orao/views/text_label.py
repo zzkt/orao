@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import pygame
 from .view import View
 from ..chargen import chargen_draw_str

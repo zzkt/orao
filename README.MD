@@ -18,16 +18,16 @@ fun to have an emulator 2000 lines of boring, by the book code. Would it? :-)
 
 Additional Requirements
 ------------------------------
-    
+
 1. Pygame
 2. Numpy
-       
+
 Instructions
 -------------
 
 Run with python orao.py, enter BASIC using "BC". When asked about the memory
 size, press ENTER unless you don't want BASIC to use the entire available
-memory. 
+memory.
 
 WAV files containing programs / games should be located in the wav folder.
 
@@ -37,7 +37,7 @@ will be created.  Load it back using LOAD "filename".
 DMEM "filename", ADDR, LENGTH can also be used to save a fragment of memory,
 beginning at address ADDR and of length LENGTH (in decimal). LMEM "filename"
 loads it back.
-      
+
 Clicking the POWER button does a warm reboot. You can then go back to BASIC
 with BW to keep the memory intact, or re-initialize with BC. The enclosed PDF
 describes the monitor mode and commands, but it is in Croatian only (Google
@@ -62,7 +62,5 @@ Then press F8 to load and start program.
 Known bugs
 ----------
 
-- Pygame and Pulseaudio crash occasionally. - it seems that this 
-  fork is less prone to lock-ups and **pygame*** crashes.
-  Please report any issues you have.
+- Pygame and Pulseaudio crash occasionally. Please report any issues you have.
 - no error checking for input `.prg` file

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 from .heatmap import MemHeatmap
 from .access_map import AccessMap

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import pygame
 import numpy
 from .view import View
@@ -30,4 +32,3 @@ class MemHeatmap(View):
 		mem = cpu.memory[self.start_addr:self.start_addr + (w * h)]
 		arr = numpy.reshape(mem, (h, w))
 		pygame.surfarray.blit_array(self.surf, numpy.transpose(arr))
-

@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
+
 import pygame
 from .view import View
 from ..chargen import chargen_draw_str
 
 
 class CPUState(View):
-
 	def __init__(self):
 		self.init_surface(pygame.Surface((2 * 8 * 8, 3 * 8), depth=24))
 		#self.set_smooth_scale()
